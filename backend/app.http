@@ -1,0 +1,122 @@
+###Register user
+POST http://localhost:4700/user/register
+Content-Type: application/json 
+
+{
+   "userName":"Jennifer sammy",
+   "userEmail":"jenny123@outlook.com",
+   "userPassword":"12345678",
+      
+}
+{
+   "userName":"Eric Kyalo",
+   "userEmail":"eric123@outlook.com",
+   "userPassword":"12345678",
+      
+}
+
+
+###LOGIN USER 
+POST http://localhost:4700/user/login
+Content-Type: application/json 
+
+{
+   "userEmail":"eric123@outlook.com",
+   "userPassword":"12345678"
+}
+
+{
+   "userEmail":"jenny123@outlook.com",
+   "userPassword":"12345678"
+}
+
+
+
+###Update user details, You use user Details to update his details
+PUT http://localhost:4700/user/update/
+Content-Type: application/json 
+
+{
+   "userName":"Jennifer sammy",
+   "userEmail":"jenny123@outlook.com",
+   "userPassword":"12345678"
+}
+
+###Add product
+POST http://localhost:4700/product/add 
+Content-Type: application/json 
+
+{
+    "productName":"JBL Woofer",
+    "productDescription":"A 50V heater",
+    "productPrice":"27000",
+    "productImage":"https://tv"
+}
+
+
+
+###Update product ,YOU use productId to update its details
+PUT http://localhost:4700/product/update/a76536d0-365e-4c0a-b087-23c4b2de482b
+Content-Type: application/json 
+
+{
+    "productName":"Black Mamba",
+    "productDescription":"A Kabras product",
+    "productPrice":"520",
+    "productImg":"http://res.cloudinary.com/dkgtf3hhj/image/upload/v1692984617/nlzi4cmqqicvoiz2bt7o.jpg"
+}
+
+
+###view One product
+GET http://localhost:4700/product/viewOneProduct/ 
+
+
+###VIEW ALL Products
+GET http://localhost:4700/product/allProducts/Shoes
+token:
+
+###delete product
+DELETE http://localhost:4700/product/delete/ccf-8086-4189-a34a-be07d93c181d 
+token:
+
+
+ 
+###ADD PRODUCT TO CART 
+POST http://localhost:4700/cart/add 
+Content-Type: application/json 
+token:
+
+{
+   
+}
+
+
+###VIEW CART , You use UserId to view Cart
+GET http://localhost:4700/cart/viewCart/
+token:
+
+###ClearAll Product from cart, You use UserId clear all cart
+DELETE http://localhost:4700/cart/deleteAll/
+token:
+
+###Remove one item from the cart ,You use productId to remove one item from the cart
+DELETE http://localhost:4700/cart/removeOne/ 
+token:
+
+###reset password request
+POST http://localhost:4700/reset/reset-password
+Content-Type: application/json 
+
+{
+   "userEmail":"jenny123@outlook.com",
+}
+
+
+
+###reseting using token
+POST http://localhost:4700/reset/reset-password/A7EE72
+Content-Type: application/json 
+
+{
+   "newPassword":"12345678"
+}
