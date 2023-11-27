@@ -81,14 +81,14 @@ export  const updateUser = async (req: { params: { userId: string }; body: Regis
   
       const { error } = userUpdateValidator.validate(req.body)
   
-      const hashedPassword = await bcrypt.hash(userPassword, 10)
+      const hashedPwd = await bcrypt.hash(userPassword, 10)
   
       const result = await dbhelpers.execute('userUpdateProc', {
         userId,
         userName,
         userEmail,
         userPhone,
-        userPassword: hashedPassword,
+        userPassword: hashedPwd,
         profilePic,
       })
   

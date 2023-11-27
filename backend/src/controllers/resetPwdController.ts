@@ -3,10 +3,11 @@ import * as bcrypt from 'bcrypt';
 import * as nodemailer from 'nodemailer';
 import * as crypto from 'crypto';
 import dotenv from 'dotenv';
+import { sqlConfig } from '../config/sqlConfig';
 
 dotenv.config();
 
-const { sqlConfig } = require('../Config/config');
+// const { sqlConfig } = require('../Config/config');
 
 // Nodemailer configuration
 const transporter = nodemailer.createTransport({

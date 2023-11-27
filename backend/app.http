@@ -3,17 +3,13 @@ POST http://localhost:4700/user/register
 Content-Type: application/json 
 
 {
-   "userName":"Jennifer sammy",
-   "userEmail":"jenny123@outlook.com",
-   "userPassword":"12345678",
-      
+   "userName": "Eric Kyalo",
+   "profilePic": "https://images.com/photo-1682687982423-295485af248a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8",
+   "userPhone": "0778775678",
+   "userEmail": "eric3@outlook.com",
+   "userPassword": "12345678"
 }
-{
-   "userName":"Eric Kyalo",
-   "userEmail":"eric123@outlook.com",
-   "userPassword":"12345678",
-      
-}
+
 
 
 ###LOGIN USER 
@@ -21,25 +17,24 @@ POST http://localhost:4700/user/login
 Content-Type: application/json 
 
 {
-   "userEmail":"eric123@outlook.com",
+   "userEmail":"eric3@outlook.com",
    "userPassword":"12345678"
 }
 
-{
-   "userEmail":"jenny123@outlook.com",
-   "userPassword":"12345678"
-}
 
 
 
 ###Update user details, You use user Details to update his details
-PUT http://localhost:4700/user/update/
+PUT http://localhost:4700/user/update/fdecb1bf-69da-47a0-875e-c47f53af720c
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
 Content-Type: application/json 
 
 {
-   "userName":"Jennifer sammy",
-   "userEmail":"jenny123@outlook.com",
-   "userPassword":"12345678"
+   "userName": "Eric Kioko",
+   "profilePic": "https://images.unsplash.com/photo-1682687982423-295485af248a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8",
+   "userPhone": "0778770566",
+   "userEmail": "eric3@outlook.com",
+   "userPassword": "12345678"
 }
 
 ###Add product
@@ -48,6 +43,11 @@ Content-Type: application/json
 
 {
     "productName":"JBL Woofer",
+    "productCost": "4500",
+    "productClassification": "Radio",
+    "productCategory": "subwoofer",
+
+   
     "productDescription":"A 50V heater",
     "productPrice":"27000",
     "productImage":"https://tv"
@@ -56,27 +56,29 @@ Content-Type: application/json
 
 
 ###Update product ,YOU use productId to update its details
-PUT http://localhost:4700/product/update/a76536d0-365e-4c0a-b087-23c4b2de482b
+PUT http://localhost:4700/product/update/3ece5b23-50fa-430a-841c-3abfb32f4d92
 Content-Type: application/json 
 
 {
     "productName":"Black Mamba",
     "productDescription":"A Kabras product",
-    "productPrice":"520",
+    "productClassification":"Speaker",
+    "productCategory":"Subwoofer",
+    "productCost":"520",
     "productImg":"http://res.cloudinary.com/dkgtf3hhj/image/upload/v1692984617/nlzi4cmqqicvoiz2bt7o.jpg"
 }
 
 
 ###view One product
-GET http://localhost:4700/product/viewOneProduct/ 
+GET http://localhost:4700/product/viewOneProduct/3ece5b23-50fa-430a-841c-3abfb32f4d92
 
 
 ###VIEW ALL Products
-GET http://localhost:4700/product/allProducts/Shoes
-token:
+GET http://localhost:4700/product/allProducts/subwoofer
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
 
 ###delete product
-DELETE http://localhost:4700/product/delete/ccf-8086-4189-a34a-be07d93c181d 
+DELETE http://localhost:4700/product/delete/ea8b89f2-8c40-483c-b294-715fced15eea
 token:
 
 
@@ -84,24 +86,32 @@ token:
 ###ADD PRODUCT TO CART 
 POST http://localhost:4700/cart/add 
 Content-Type: application/json 
-token:
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
 
 {
+    "productName":"Black Mamba",
+    "productDescription":"A Kabras product",
+    "productClassification":"Speaker",
+    "productCategory":"Subwoofer",
+    "boughtBy": "fdecb1bf-69da-47a0-875e-c47f53af720c",
+    "productCost":"520",
+    "productImg":"http://res.cloudinary.com/dkgtf3hhj/image/upload/v1692984617/nlzi4cmqqicvoiz2bt7o.jpg"
    
 }
 
 
 ###VIEW CART , You use UserId to view Cart
-GET http://localhost:4700/cart/viewCart/
-token:
+
+GET http://localhost:4700/cart/viewCart/fdecb1bf-69da-47a0-875e-c47f53af720c
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
 
 ###ClearAll Product from cart, You use UserId clear all cart
 DELETE http://localhost:4700/cart/deleteAll/
-token:
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
 
 ###Remove one item from the cart ,You use productId to remove one item from the cart
 DELETE http://localhost:4700/cart/removeOne/ 
-token:
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
 
 ###reset password request
 POST http://localhost:4700/reset/reset-password
@@ -116,7 +126,8 @@ Content-Type: application/json
 ###reseting using token
 POST http://localhost:4700/reset/reset-password/A7EE72
 Content-Type: application/json 
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
 
 {
-   "newPassword":"12345678"
+   "newPassword":"1234567"
 }
