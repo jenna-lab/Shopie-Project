@@ -27,7 +27,7 @@ const userRegisterValidator = joi.object({
       new RegExp("^[a-zA-Z0-9!@#$%^&*()_+\\-=\\[\\]{};:'\"|,.<>?/~`]{8,}$")
     ),
 });
-const loginValidator = joi.object({
+export const loginValidator = joi.object({
   userEmail: joi.string().messages({
     "username.empty": "Please Input Your userName with length 5 to 20",
   }),
@@ -39,7 +39,7 @@ const loginValidator = joi.object({
     ),
 });
 
-const userUpdateValidator = joi.object({
+export const userUpdateValidator = joi.object({
   userName: joi.string().min(5).max(20).messages({
     "username.empty": "Please Input Your userName with length 5 to 20",
   }),

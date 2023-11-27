@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import mssql, { Request } from 'mssql';
 import { sqlConfig } from '../config/sqlConfig';
-import { AddToCartRequest } from '../interfaces/cart';
-import Connection from '../dbHelpers/dbHelper';
+import { AddToCartRequest } from '../interface/cart'
+import Connection from '../dbhelpers/dbhelper'
 
 const dbhelper = new Connection
 

@@ -1,5 +1,6 @@
-import Connection from '../dbHelpers/dbHelper';
+import Connection from '../dbhelpers/dbhelper'
 import { v4 as uuidv4 } from 'uuid';
+import { Product } from '../interface/product';
 
 const dbhelper = new Connection();
 
