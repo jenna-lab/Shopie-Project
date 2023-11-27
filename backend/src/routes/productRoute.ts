@@ -3,7 +3,7 @@ import {
   addProduct,
   updateProduct,
   viewOneProduct,
-  viewAllproducts,
+  viewAllProducts,
   viewProductsCategory,
   deleteProduct,
 } from "../controllers/productController";
@@ -13,7 +13,7 @@ const productRoute = Router();
 productRoute.post("/add", addProduct);
 productRoute.put("/update/:productId", updateProduct);
 productRoute.get("/viewOneProduct/:productId", viewOneProduct);
-productRoute.get("/allProducts", viewAllproducts);
+productRoute.get("/allProducts", viewAllProducts);
 productRoute.get(
   "/allProducts/:productCategory",
   viewProductsCategory
