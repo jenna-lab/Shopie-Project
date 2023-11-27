@@ -5,8 +5,8 @@ import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import { sqlConfig } from '../config/sqlConfig';
 import { userUpdateValidator, loginValidator} from '../validators/validators'
-import { LoginUserRequest, RegisterUserRequest } from '../interfaces/user';
-import Connection from '../dbHelpers/dbHelper'
+import { LoginUserRequest, RegisterUserRequest } from '../interface/user'
+import Connection from '../dbhelpers/dbhelper'
 
 
 dotenv.config();
