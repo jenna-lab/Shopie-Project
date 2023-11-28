@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SingleProductComponent } from './single-product/single-product.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     UserComponent,
     HomeComponent,
     PageNotFoundComponent,
+    SingleProductComponent,
    
   ],
   imports: [

@@ -5,14 +5,15 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { UserComponent } from './user/user.component';
+import { SingleProductComponent } from './single-product/single-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-
   { path: 'user', component: UserComponent },
+  { path: 'product', component: SingleProductComponent},
 
   { path: '**', component: PageNotFoundComponent },
 ];
