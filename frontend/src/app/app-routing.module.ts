@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { UserComponent } from './user/user.component';
 import { SingleProductComponent } from './single-product/single-product.component';
+import { CartModalComponent } from './cart-modal/cart-modal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'user', component: UserComponent },
-  { path: 'product', component: SingleProductComponent},
+  { path: 'product', component: SingleProductComponent },
+  { path: 'cart', component: CartModalComponent },
 
   { path: '**', component: PageNotFoundComponent },
 ];

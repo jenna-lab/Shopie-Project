@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SingleProductComponent } from './single-product/single-product.component';
+import { CartModalComponent } from './cart-modal/cart-modal.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SingleProductComponent } from './single-product/single-product.componen
     HomeComponent,
     PageNotFoundComponent,
     SingleProductComponent,
+    CartModalComponent,
    
   ],
   imports: [
