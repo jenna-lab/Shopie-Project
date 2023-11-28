@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { UserComponent } from './user/user.component';
+import { LandingComponent } from './landing/landing.component';
+import { UserComponent } from './dashboards/user/user.component';
+import { AdminComponent } from './dashboards/admin/admin.component';
+import { SingupComponent } from './auth/singup/singup.component';
+import { LoginComponent } from './auth/login/login.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-
-  { path: 'user', component: UserComponent },
-
-  { path: '**', component: PageNotFoundComponent },
+  {path: "", pathMatch: 'full', redirectTo: ""},
+  {path: "", component:LandingComponent},
+  {path: "sign", component:SingupComponent},
+  {path: "login", component:LoginComponent},
+  {path: "user", component:UserComponent},
+  {path: "admin", component:AdminComponent},
+  {path: "**", component:NotFoundComponent}
 ];
 
 @NgModule({

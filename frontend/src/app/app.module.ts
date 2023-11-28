@@ -1,37 +1,43 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgbPaginationModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { HeaderComponent } from './header/header.component';
-import { UserComponent } from './user/user.component';
-import { HomeComponent } from './home/home.component';
-import { FormsModule } from '@angular/forms';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { SingupComponent } from './auth/singup/singup.component';
+import { LoginComponent } from './auth/login/login.component';
+import { NavbarComponent } from './navigation/navbar/navbar.component';
+import { FooterComponent } from './navigation/footer/footer.component';
+import { AdminComponent } from './dashboards/admin/admin.component';
+import { UserComponent } from './dashboards/user/user.component';
+import { LandingComponent } from './landing/landing.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { UpdateProductComponent } from './update-product/update-product.component';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SingupComponent,
     LoginComponent,
-    RegisterComponent,
-    HeaderComponent,
+    NavbarComponent,
+    FooterComponent,
+    AdminComponent,
     UserComponent,
-    HomeComponent,
-    PageNotFoundComponent,
-   
+    LandingComponent,
+    NotFoundComponent,
+    UpdateProductComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbPaginationModule,
-    NgbModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
