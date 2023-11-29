@@ -15,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { SearchPipe } from './pipes/search.pipe';
+import { ProductComponent } from './products/products.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { SearchPipe } from './pipes/search.pipe';
     NotFoundComponent,
     UpdateProductComponent,
     SearchPipe,
+    ProductComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

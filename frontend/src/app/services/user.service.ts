@@ -100,7 +100,7 @@ import { Product } from '../interfaces/product';
   providedIn: 'root',
 })
 export class UserService {
-  apiUrl = 'http://localhost:4000/users';
+  apiUrl = 'http://localhost:4700/user';
   checkUserDetailsUrl = `${this.apiUrl}/checkUserDetails`;
   
   constructor(private http: HttpClient, private authService: AuthService) {}
@@ -115,35 +115,34 @@ export class UserService {
     });
   }
 
-  // checkDetails(): Observable<string> {
-  //   const token = localStorage.getItem('token') || '';
-  //   const headers = new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     token: token,
-  //   });
-
-  //   return this.http
-  //     .get<any>(this.apiUrl, { headers })
-  //     .pipe(map((data) => data.info.role));
-      
-      
-  // }
-
-
+ 
   checkDetails(): Observable<string> {
     const token = localStorage.getItem('token') || '';
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      token: token,
+      'token': token
     });
-  
-    return this.http
-      .get<any>(this.apiUrl, { headers })
-      .pipe(
-        tap((data) => console.log('Received data:', data)),  // Log the received data
-        map((data) => data.info.role)
-      );
+
+    return this.http.get<any>(this.checkUserDetailsUrl, { headers }).pipe(map(data => data.info.role));
   }
+
+
+  
+
+// checkDetails(): Observable<string> {
+//     const token = localStorage.getItem('token') || '';
+//     const headers = new HttpHeaders({
+//       'Content-Type': 'application/json',
+//       token: token,
+//     });
+  
+//     return this.http
+//       .get<any>(this.apiUrl, { headers })
+//       .pipe(
+//         tap((data) => console.log('Received data:', data)),  
+//         map((data) => data.info.role)
+//       );
+//   }
   
 
 

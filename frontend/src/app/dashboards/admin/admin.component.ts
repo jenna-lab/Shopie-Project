@@ -19,14 +19,14 @@ export class AdminComponent {
   loggedIn=true
   hidden=true
   filter=''
-  createProductForm!: FormGroup
+  productForm!: FormGroup
   products!: Product[];
   users!: User[];
 
   updateProductForm!: FormGroup
   product!: Product
-  productID: string=''
-  updateProductID :string =''
+  productId: string=''
+  updateProductId :string =''
 
   constructor(
     private productService:ProductService,
@@ -34,11 +34,16 @@ export class AdminComponent {
     private router: Router,
     private userService: UserService
   ) {
-this.createProductForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      price: ['', [Validators.required]],
-      shortDescription: ['', [Validators.required]],
-      image:['',[Validators.required]]
+this.productForm = this.formBuilder.group({
+      productName: ['', [Validators.required]],
+      productCost: ['', [Validators.required]],
+      productDescription: ['', [Validators.required]],
+      productCategory:['',[Validators.required]],
+      productImg:['',[Validators.required]],
+      productClassifcation:['',[Validators.required]]
+
+
+
     }
       );
 
@@ -67,7 +72,7 @@ this.createProductForm = this.formBuilder.group({
   }
 
   createProduct() {
-    let createProduct: Product = this.createProductForm.value;
+    let createProduct: Product = this.productForm.value;
     this.productService.createProduct(createProduct).subscribe(
       () => {
         this.getProducts();

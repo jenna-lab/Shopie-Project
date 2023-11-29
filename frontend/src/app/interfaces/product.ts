@@ -1,7 +1,11 @@
 export interface Product {
     productId: string;
-    name: string;
-    shortDescription: string;
-    price: number;
-    image: string;
-}
+    productName: string;
+    productDescription: string;
+    productClassification: string;
+    productCategory: string;
+    productCost: number;
+    productImg: string;
+    earlyCost: number;
+  }
+  

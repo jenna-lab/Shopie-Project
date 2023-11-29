@@ -6,6 +6,7 @@ import { AdminComponent } from './dashboards/admin/admin.component';
 import { SingupComponent } from './auth/singup/singup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {path: "", pathMatch: 'full', redirectTo: ""},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: "login", component:LoginComponent},
   {path: "user", component:UserComponent},
   {path: "admin", component:AdminComponent},
+  {path: "about", component:AboutComponent},
   {path: "**", component:NotFoundComponent}
 ];
 

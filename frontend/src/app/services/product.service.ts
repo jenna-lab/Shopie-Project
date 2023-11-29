@@ -8,7 +8,7 @@ import { Product } from '../interfaces/product';
   providedIn: 'root',
 })
 export class ProductService {
-  private baseUrl = 'http://localhost:4700';
+  private baseUrl = 'http://localhost:4700/product';
 
   private headers = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -17,15 +17,25 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   createProduct(product: Product): Observable<any> {
-    return this.http.post(`${this.baseUrl}/productRoute/add`, product, { headers: this.headers });
+    return this.http.post(`${this.baseUrl}/add`, product, { headers: this.headers });
   }
 
   getProducts(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/productRoute/allProducts`, { headers: this.headers });
+    return this.http.get(`${this.baseUrl}/allProducts`, { headers: this.headers });
   }
 
+
+  // Service method without the productCategory parameter
+getProductsCategories(): Observable<any> {
+  return this.http.get(`${this.baseUrl}/allProducts`, { headers: this.headers });
+}
+
+
+
+
+
   getProductById(productId: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/productRoute/viewOneProduct/${productId}`, { headers: this.headers }).pipe(
+    return this.http.get(`${this.baseUrl}/viewOneProduct/${productId}`, { headers: this.headers }).pipe(
       catchError((error) => {
         if (error.status === 404) {
           return throwError(() => 'Product not found');
@@ -47,9 +57,10 @@ export class ProductService {
     return this.http.get(`${this.baseUrl}/allProducts`, { headers: this.headers });
   }
 
-  viewProductsCategory(category: string): Observable<Product[]> {
-    const params = new HttpParams().set('productCategory', category);
-    return this.http.get<Product[]>(`${this.baseUrl}/allProducts`, { params });
+  viewProductsCategory(productCategory: string): Observable<Product[]> {
+    const url = `${this.baseUrl}/allProducts/${productCategory}`;
+    return this.http.get<Product[]>(url);
   }
+  
 
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { LoginResponse, User, UserDetails } from '../interfaces/user';
-import { Observable,tap } from 'rxjs';
+import { Observable,catchError,tap, throwError } from 'rxjs';
 
 
 @Injectable({
@@ -12,7 +12,7 @@ export class AuthService {
   constructor(private http:HttpClient) { }
   private apiUrl = 'http://localhost:4700/user';
   registerUser(user:User){
-    this.http.post(`${this.apiUrl}/register/`,user).subscribe(res=>{
+    this.http.post(`${this.apiUrl}/register`,user).subscribe(res=>{
       return res
     })
   }
@@ -29,16 +29,26 @@ export class AuthService {
       })
     );
   }
-
   getUserDetails(): Observable<UserDetails> {
     const token = localStorage.getItem('token') || '';
+  
+    // Include the token in the headers
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'token': token
+      'token': token,
     });
-
-    return this.http.get<UserDetails>('http://localhost:4700/user/userDetails/', { headers });
+  
+    // Make the HTTP request with the headers
+    return this.http.get<UserDetails>('http://localhost:4700/user/checkUserDetails/', { headers })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          // Handle HTTP errors
+          console.error('Error fetching user details:', error);
+          return throwError('Failed to fetch user details. Please try again.');
+        })
+      );
   }
+  
 
   // getUserDetails(): Observable<any> {
   

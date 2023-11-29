@@ -22,10 +22,12 @@ export class UpdateProductComponent {
   constructor( private formBuilder:FormBuilder, private productService:ProductService ){
 
  this.updateProductForm = this.formBuilder.group({
-  name: ['', [Validators.required]],
-  price: ['', [Validators.required]],
-  shortDescription: ['', [Validators.required]],
-  image:['',[Validators.required]]
+  productName: ['', [Validators.required]],
+  productCost: ['', [Validators.required]],
+  productDescription: ['', [Validators.required]],
+  productCategory:['',[Validators.required]],
+  productImg:['',[Validators.required]],
+  productClassifcation:['',[Validators.required]]
 }
   );
   }
@@ -41,7 +43,7 @@ export class UpdateProductComponent {
         this.products = response;
       },
       (error) => {
-        console.error('Error fetching tours:', error);
+        console.error('Error fetching products:', error);
       }
     );
   }
@@ -63,9 +65,9 @@ export class UpdateProductComponent {
   }
 
 
-  deleteProduct(productID: string): void {
+  deleteProduct(productId: string): void {
     alert('Are you sure You want to delete, this action is irreversible')
-    this.productService.deleteProduct(productID).subscribe(
+    this.productService.deleteProduct(productId).subscribe(
       () => {
         this.loadProducts();
       },
@@ -76,8 +78,8 @@ export class UpdateProductComponent {
   }
 
 
-  clickUpdateProductID = (productID:string)=> {
-    this.updateProductId = productID
+  clickUpdateProductID = (productId:string)=> {
+    this.updateProductId = productId
 
     console.log(this.updateProductId);
     

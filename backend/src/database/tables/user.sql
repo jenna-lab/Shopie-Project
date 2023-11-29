@@ -22,3 +22,5 @@ USE Shopee;
 UPDATE Users SET role = 'admin' WHERE userEmail = 'erickyalo19@gmail.com'
 
 SELECT * FROM Users;
+
+DROP TABLE Users;

@@ -8,11 +8,12 @@
 // }
 
 export interface User{
-  userId:string,
-  userName:string,
-  userEmail:string,
-  userPassword:string,
-  role:string
+  userPhone: string;
+  userName: string;
+  userEmail: string;
+  userPassword: string;
+  profilePic: string;
+  role: string;
 }
 
 export interface RegisterUserRequest {

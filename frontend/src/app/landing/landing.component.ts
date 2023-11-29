@@ -13,8 +13,8 @@ export class LandingComponent implements OnInit {
 filter=''
 
 
-  products! : Product[]
-  constructor(private productService:ProductService){}
+products: any[] = [];
+constructor(private productService:ProductService){}
 
 ngOnInit(){
   this.getProducts()
