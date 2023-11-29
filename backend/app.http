@@ -59,8 +59,6 @@ Content-Type: application/json
     "productCost": "4500",
     "productClassification": "Radio",
     "productCategory": "subwoofer",
-
-   
     "productDescription":"A 50V heater",
     "productPrice":"27000",
     "productImage":"https://tv"
