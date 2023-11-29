@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { UserComponent } from './user/user.component';
 import { SingleProductComponent } from './single-product/single-product.component';
 import { CartModalComponent } from './cart-modal/cart-modal.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'user', component: UserComponent },
   { path: 'product', component: SingleProductComponent },
   { path: 'cart', component: CartModalComponent },
+  { path: 'sidebar', component: SidebarComponent },
 
   { path: '**', component: PageNotFoundComponent },
 ];

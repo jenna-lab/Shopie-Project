@@ -1,0 +1,55 @@
+/* sidebar.component.css */
+
+.sidebar {
+  width: 200px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.profile-status {
+  font-size: 14px;
+  color: #28a745; /* Green color for online status */
+}
+
+/* Style for Categories and Logout Button */
+.text-lg {
+  font-size: 1.25rem;
+}
+
+.hover\:text-blue-500:hover {
+  color: #007BFF;
+}
+
+.bg-blue-500 {
+  background-color: #007BFF;
+}
+
+.text-white {
+  color: #fff;
+}
