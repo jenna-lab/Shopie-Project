@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
+import { ExtendedUser, verifyToken } from '../middleware/verifyToken';
+import {Request,Response, json} from 'express';
 import { sqlConfig } from '../config/sqlConfig';
 import { userUpdateValidator, loginValidator} from '../validators/validators'
 import { LoginUserRequest, RegisterUserRequest } from '../interface/user'
@@ -59,7 +61,7 @@ export  const loginUser = async (req: { body: LoginUserRequest }, res: any) => {
         const comparePassword = await bcrypt.compare(userPassword, hashedPwd)
   
         if (comparePassword) {
-          const { userPassword, userId, role, profilePic, ...payload } = user.recordset[0]
+          const { userPassword, userId, profilePic, ...payload } = user.recordset[0]
           const token = jwt.sign(payload, secret, { expiresIn: '360000s' });          
           return res.status(200).json({ message: 'Logged in successfully', token, role, userId, profilePic })
         } else {
@@ -101,6 +103,61 @@ export  const updateUser = async (req: { params: { userId: string }; body: Regis
       return res.json({ Error: error })
     }
   }
+
+
+
+  export const getAllUsers=async(req:Request, res:Response)=>{
+    try{
+        const users=(await dbhelpers.execute('fetchAllUsers')).recordset
   
- 
+        return res.status(201).json(users);
+      }catch(error){
+      return res.json({error:error})
+    }
+  }
   
+
+//   export const checkCredentials=(req:Request,res:Response)=>{
+//     if(req.info){
+//         return res.json({
+//             info: req.info
+//         })
+//     }
+// }
+
+
+export const checkCredentials=(req:ExtendedUser,res:Response)=>{
+  if(req.info){
+      return res.json({
+          info: req.info
+      })
+  }
+}
+
+
+
+
+
+export const getUserDetails=async(req:Request,res:Response)=>{
+
+    try {
+
+       const userId =req.params.userId
+       console.log(userId);       
+    
+        const result = await dbhelpers.execute('GetUserDetails',{userId});
+        const userDetails = result.recordset[0];
+
+        console.log(userDetails);
+        
+        if (!userDetails) {
+          return res.status(404).json({ message: 'User not found' });
+        }
+    
+        res.json(userDetails);
+
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+      }
+}

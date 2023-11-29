@@ -93,6 +93,8 @@ export const viewAllProducts = async (req: any, res: any) => {
   }
 };
 
+
+
 export const viewProductsCategory = async (req: { params: { productCategory: string } }, res: any) => {
   try {
     const productCategory = req.params.productCategory;

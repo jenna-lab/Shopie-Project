@@ -3,10 +3,10 @@ import dotenv from 'dotenv'
 import { NextFunction, Request, Response } from 'express';
 dotenv.config();
 import jwt from 'jsonwebtoken'
-import { User} from '../interface/user'
+import { LoginUserRequest } from '../interface/user'
 
 export interface ExtendedUser extends Request{
-    info?: User
+    info?: LoginUserRequest
 }
 
 export const verifyToken = (req:ExtendedUser, res:Response, next:NextFunction) =>{
@@ -19,9 +19,11 @@ export const verifyToken = (req:ExtendedUser, res:Response, next:NextFunction) =
             })
         }
 
-        const data = jwt.verify(token, process.env.SECRET as string) as User
+        const data = jwt.verify(token, process.env.SECRET as string) as LoginUserRequest;
+        console.log('Decoded Token:', data);
+        req.info = data;
 
-        req.info = data
+        
         
     } catch (error) {
         return res.json({
