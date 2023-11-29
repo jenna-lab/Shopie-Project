@@ -4,17 +4,17 @@
         <tr>
           <th>Product Name</th>
           <th>Description</th>
-          <th>Destination</th>
+          <th>Category</th>
           <th>Price</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let product of products">
-          <td>{{ product.name }}</td>
-          <td>{{ product.description }}</td>
-          <td>{{ product.destination }}</td>
-          <td>{{ product.price }}</td>
+          <td>{{ product.productName }}</td>
+          <td>{{ product.productDescription }}</td>
+          <td>{{ product.productCategory }}</td>
+          <td>{{ product.productCost }}</td>
           <td>
             <button class="edit-button" (click)="editClicked(product)">Edit</button>
             <button class="delete-button" (click)="deleteClicked(product.productId)">Delete</button>

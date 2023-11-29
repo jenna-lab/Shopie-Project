@@ -69,7 +69,8 @@ Content-Type: application/json
 
 
 ###Update product ,YOU use productId to update its details
-PUT http://localhost:4700/product/update/3ece5b23-50fa-430a-841c-3abfb32f4d92
+
+PUT http://localhost:4700/product/update/cadb5ab6-7c49-4cfa-bdf8-f6f4424a806f
 Content-Type: application/json 
 
 {
