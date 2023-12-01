@@ -27,3 +27,11 @@ a:focus {
     justify-content: center;
 
 }
+
+.myimg {
+    background-image: url('https://media.istockphoto.com/id/1347455404/photo/shot-of-an-unrecognizable-woman-spending-a-day-in-the-city.jpg?s=612x612&w=0&k=20&c=W3-QMPd9D-ok_upk94ooFtb3wnWUZW4Gu8dtYRH3fKI=');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  

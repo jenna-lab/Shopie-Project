@@ -100,6 +100,9 @@ import { Product } from '../interfaces/product';
   providedIn: 'root',
 })
 export class UserService {
+  resetPassword(resetPassword: any) {
+    throw new Error('Method not implemented.');
+  }
   apiUrl = 'http://localhost:4700/user';
   checkUserDetailsUrl = `${this.apiUrl}/checkUserDetails`;
   

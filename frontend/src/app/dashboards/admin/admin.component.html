@@ -1,38 +1,59 @@
 <!-- <app-navbar></app-navbar> -->
 
 
-<body  class="bg-gray-100 font-sans flex max-h-full">
-  <aside class="w-1/5 bg-gray-800 text-white p-4">
+<body  class="bg-gray-100 font-sans flex-1 max-h-full">
+  <!-- <aside class="w-1/5 bg-gradient-to-b from-blue-900 to-orange-500 text-white p-4">
     <h2 class="text-2xl font-semibold mb-4">Admin Dashboard</h2>
     <nav>
       <ul>
         <li><a href="#" class="block py-3">Home</a></li>
         <li><a routerLink="/customer" class="block py-3">Customers</a></li>
+        <li><a routerLink="/customer" class="block py-3">Products table</a></li>
+        <li><a routerLink="/customer" class="block py-3">Products Categories</a></li>
+        <li><a routerLink="/customer" class="block py-3">Products table</a></li>
+
+
+
         
       </ul>
 
     </nav>
-  </aside>
+  </aside> -->
+
+  <nav>
+
+    <div class="bg-gradient-to-r from-blue-900 to-orange-500 flex justify-between mb-4 px-4 from-blue-900 to-gray-800 p-4 shadow text-2xl text-white w-full">
+      <h3 class="font-bold pl-2">Admin Dashboard </h3>
+      <ul class="flex justify-between">
+        <li><a href="#" class="block py-3 mr-4">Home</a></li>
+        <li><a routerLink="/customer" class="block py-3 mr-4">Customers</a></li>
+        <li><a routerLink="/customer" class="block py-3 mr-4">ProductsTable</a></li>
+        <li><a routerLink="/customer" class="block py-3 mr-4">Categories</a></li>
+      </ul>
+      <div>
+        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" (click)="visible = !visible">Add Product</button>
+      </div>
+      
+    </div>
+  
+  </nav>
+
+  <div>
+    <h2 class="text-2xl font-semibold mb-4 flex justify-center">Products</h2>
+
+  </div>
 
   <div class="container mx-auto">
-    <app-navbar></app-navbar>
-    <div class="rounded-tl-3xl bg-gradient-to-r flex justify-between m-6 px-4 from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
-      <h3 class="font-bold pl-2">Products </h3>
-
-      
-
-     
-    <div>
-        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" (click)="visible = !visible">Add Product</button>
+    <!-- <app-navbar></app-navbar> -->
+  
+      <!-- <app-products></app-products> -->
+   <div class="mt-6">
+    <app-update-product ></app-update-product>
+  
     </div>
-    
 
   </div>
-  <!-- <app-products></app-products> -->
 
-  <app-update-product ></app-update-product>
-
-  </div>
 
 
   
@@ -40,7 +61,7 @@
   
     <div  class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
   
-    <div class="fixed createTour inset-0 overflow-hidden">
+    <div class="fixed createProduct inset-0 overflow-hidden">
       <div class="absolute inset-0 overflow-hidden">
         <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
       
@@ -58,7 +79,7 @@
   
             <div class="flex modal flex-col overflow-y-scroll bg-white py-6 shadow-xl">
               <div class="px-4 sm:px-6">
-                <h2 class="text-base font-semibold leading-6 text-gray-900 " id="slide-over-title">CREATE PRODUCT </h2>
+                <h2 class="text-base font-semibold leading-6 text-gray-900 " id="slide-over-title">ADD PRODUCT </h2>
               </div>
               <div class="relative mt-6 flex-1 px-4 sm:px-6">
                 <div class="relative p-4 w-full max-w-md max-h-full">
@@ -134,7 +155,12 @@
   
   
 </body>
-<app-footer></app-footer>
+
+<div class="mt-6">
+  <app-footer></app-footer>
+
+</div>
+
 
 
 

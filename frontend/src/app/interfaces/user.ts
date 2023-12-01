@@ -1,8 +1,10 @@
 export interface User {
-    userID: string;
-    fullName: string;
-    email: string;
+    userId: string;
+    userName: string;
+    userEmail: string;
+    userPhone: string;
     password: string;
+    profilePic: string;
     role: string;
 }
 
@@ -11,7 +13,7 @@ export interface User {
     user: User | undefined;
     // userID(userID: any): unknown;
     token: string;
-    userID:string
+    userId:string
     // Add other properties if needed
   }
 
@@ -22,18 +24,20 @@ export interface User {
 
 
 export interface UserDetails {
-  userId: any;
-  userID:string;
-  fullName: string;
-  email: string;
-  role:string;
-  // Add other user details as needed
+  userId: string;
+  userPhone: string;
+  userName: string;
+  userEmail: string;
+  profilePic: string;
 }
 
 export interface updatedUserData {
-  userID:string,
-  fullName: string,
-  email: string,
+  userId:string,
+  userName: string,
+  userEmail: string,
+  userPhone: string;
+  profilePic: string;
+  role: string;
 };
 
 

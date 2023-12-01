@@ -27,7 +27,7 @@ export class UpdateProductComponent {
   productDescription: ['', [Validators.required]],
   productCategory:['',[Validators.required]],
   productImg:['',[Validators.required]],
-  productClassifcation:['',[Validators.required]]
+  productClassification:['',[Validators.required]]
 }
   );
   }
