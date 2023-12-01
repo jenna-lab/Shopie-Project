@@ -7,5 +7,6 @@ export interface Product {
     productCost: number;
     productImg: string;
     earlyCost: number;
+    userId: string;
   }
   

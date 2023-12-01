@@ -8,6 +8,7 @@ import { Observable,catchError,tap, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  static isLoggedIn: any;
 
   constructor(private http:HttpClient) { }
   private apiUrl = 'http://localhost:4700/user';

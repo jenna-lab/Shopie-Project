@@ -1,16 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
-import { CartComponent } from 'src/app/cart/cart.component';
-import { AuthService } from 'src/app/services/auth.service';
-import { CartService } from 'src/app/services/cart.service';
+
+import { Component } from '@angular/core';
+import { CartService } from '../services/cart.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css'],
 })
-export class NavbarComponent implements OnInit {
+export class CartComponent {
   userId: string = ''; 
   product: any = {};
   
@@ -18,29 +15,8 @@ export class NavbarComponent implements OnInit {
   cartItems: any[] = [];
   errorMessage: string = '';
   dialog: any;
-  loggedIn: boolean = false;
-  showProfileDropdown: boolean = false;
- filter=''
 
-  constructor(private router: Router, private authService: AuthService, private formBuilder:FormBuilder, private cartService:CartService) {
-    this.loggedIn = authService.isLoggedIn();
-  }
-
-  loggedInTrue = localStorage.getItem('loggedIn')
-
-  // loggedIn = this.loggedInTrue
-
-  ngOnInit(): void {
-  
-  }
-
-  checkLoggedIn(){
-
-    console.log(this.loggedInTrue);
-    if(this.loggedInTrue == 'true'){
-     
-    }
-  }
+  constructor(private cartService: CartService) {}
 
   addToCart(): void {
     this.cartService.addToCart(this.product).subscribe(
@@ -109,16 +85,5 @@ export class NavbarComponent implements OnInit {
         this.errorMessage = 'Failed to remove item from cart.';
       }
     );
-  }
- 
-
-  logout() {
-    this.router.navigate(['']);
-    localStorage.clear();
-    this.loggedIn = false;
-  }
-
-  toggleProfileDropdown() {
-    this.showProfileDropdown = !this.showProfileDropdown;
   }
 }

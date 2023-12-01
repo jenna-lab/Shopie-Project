@@ -17,6 +17,12 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 import { SearchPipe } from './pipes/search.pipe';
 import { ProductComponent } from './products/products.component';
 import { AboutComponent } from './about/about.component';
+import { CartComponent } from './cart/cart.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { SingleProductComponent } from './single-product/single-product.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,13 +39,19 @@ import { AboutComponent } from './about/about.component';
     SearchPipe,
     ProductComponent,
     AboutComponent,
+    CartComponent,
+    EditProfileComponent,
+    ResetPasswordComponent,
+    UpdateUserComponent,
+    SingleProductComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

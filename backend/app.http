@@ -30,7 +30,7 @@ POST http://localhost:4700/user/login
 Content-Type: application/json 
 
 {
-   "userEmail":"eric3@outlook.com",
+   "userEmail":"erickya@gmail.com",
    "userPassword":"12345678"
 }
 

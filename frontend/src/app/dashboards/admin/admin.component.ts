@@ -14,6 +14,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AdminComponent {
 
+
   visible = true
   notVisible=false
   loggedIn=true
@@ -40,7 +41,8 @@ this.productForm = this.formBuilder.group({
       productDescription: ['', [Validators.required]],
       productCategory:['',[Validators.required]],
       productImg:['',[Validators.required]],
-      productClassifcation:['',[Validators.required]]
+      earlyCost:['',[Validators.required]],
+      productClassification:['',[Validators.required]]
 
 
 
